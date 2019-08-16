@@ -13,7 +13,7 @@
     <li>
   <%= dose.description %>
   <%= dose.ingredient.name %>
-  <%= link_to 'Destroy', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <%= link_to 'Delete', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %></li>
    </ul>
   <% end %>
 
@@ -21,7 +21,7 @@
 
 <%= simple_form_for([@cocktail, @dose]) do |f| %>
   <%= f.input :description %>
- <%= f.association :ingredient %>
+ <%= f.association :ingredient, input_html: {class: "select2"} %>
    <%= f.submit "Add a dose", class: "btn btn-primary" %>
    <% end %>
 
